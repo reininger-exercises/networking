@@ -1,5 +1,4 @@
 # web server
-from http import server
 from socket import *
 
 class WebServer:
