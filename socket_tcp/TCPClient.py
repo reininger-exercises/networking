@@ -9,6 +9,6 @@ with socket(AF_INET, SOCK_STREAM) as clientSocket:
 	clientSocket.connect((serverName, serverPort))
 	message = input('Input lowercase sentence: ')
 	clientSocket.send(message.encode())
-	modifiedMessage = socket.recv(messageBufferLen)
+	modifiedMessage = clientSocket.recv(messageBufferLen)
 	print('From Server: ', modifiedMessage.decode())
 
