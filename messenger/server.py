@@ -10,6 +10,8 @@ with socket(AF_INET, SOCK_STREAM) as serverSocket:
 	while True:
 		connectionSocket, address = serverSocket.accept()
 		with connectionSocket:
-			message = connectionSocket.recv(bufLen).decode()
-			print(message)
+			while True:
+				message = connectionSocket.recv(bufLen).decode()
+				if not message: break
+				print(message)
 
