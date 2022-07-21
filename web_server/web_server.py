@@ -14,7 +14,7 @@ class WebServer:
     def _createServerSocket(self):
         # Creates and binds a TCP server socket for initiating connections.
         serverSocket = socket(AF_INET, SOCK_STREAM)
-        serverSocket.bind(('', self._portNumber))
+        serverSocket.bind(('', self._port))
         return serverSocket
 
     def _handleConnection(self, connectionSocket, address):
