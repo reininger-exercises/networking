@@ -9,10 +9,13 @@ class WebServer:
         with self._createServerSocket() as serverSocket:
             serverSocket.listen(1)
             while True:
-                self._handleConnection(serverSocket.accept())
+                self._handleConnection(*serverSocket.accept())
 
     def _createServerSocket(self):
         # Creates and binds a TCP server socket for initiating connections.
         serverSocket = socket(AF_INET, SOCK_STREAM)
         serverSocket.bind(('', self._portNumber))
         return serverSocket
+
+    def _handleConnection(self, connectionSocket, address):
+        print('Server connected to: ', address)
