@@ -22,7 +22,7 @@ class WebServer:
         signal.signal(signal.SIGINT, self._signal_handler)
 
     def _signal_handler(slef, sig, frame):
-        print('Shutting down...')
+        print('\nShutting down...')
         sys.exit(0)
 
     def start(self):
@@ -41,3 +41,9 @@ class WebServer:
     def _handleConnection(self, connectionSocket, address):
         with connectionSocket:
             print('Server connected to: ', address)
+            message = connectionSocket.recv(self.bufLen).decode()
+            print('Message: ', message)
+        print(f'Connection to {address} closed')
+
+    def _handleRequest(self, request):
+        pass
