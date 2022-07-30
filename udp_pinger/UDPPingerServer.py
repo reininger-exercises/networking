@@ -1,5 +1,6 @@
 # UDPPingerServer.py
 # We will need the following module to generate randomized lost packets import random
+import random
 from socket import *
 
 # Create a UDP socket
@@ -19,4 +20,5 @@ while True:
     if rand < 4:
         continue
         # Otherwise, the server responds
+
     serverSocket.sendto(message, address)
