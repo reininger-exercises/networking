@@ -90,9 +90,13 @@ if recv[:3] != '250':
 	exit(1)
 
 # Send RCPT TO command and print server response.
-# Fill in start
-
-# Fill in end
+rcptToCommand = f'RCPT TO: <{username}>\r\n'
+clientSocket.send(rcptToCommand.encode())
+recv = clientSocket.recv(1024).decode()
+print(recv)
+if recv[:3] != '250':
+	print('250 reply not received from server.')
+	exit(1)
 
 # Send DATA command and print server response.
 # Fill in start
