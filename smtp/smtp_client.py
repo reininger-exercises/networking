@@ -1,5 +1,6 @@
 # Skeleton Python Code for the Mail Client
 from base64 import *
+from email import message
 from socket import *
 from ssl import *
 from textwrap import wrap
@@ -99,19 +100,24 @@ if recv[:3] != '250':
 	exit(1)
 
 # Send DATA command and print server response.
-# Fill in start
-
-# Fill in end
+dataCommand = f'DATA\r\n'
+clientSocket.send(dataCommand.encode())
+recv = clientSocket.recv(1024).decode()
+print(recv)
+if recv[:3] != '354':
+	print('354 reply not received from server.')
+	exit(1)
 
 # Send message data.
-# Fill in start
-
-# Fill in end
+clientSocket.send(msg.encode())
 
 # Message ends with a single period.
-# Fill in start
-
-# Fill in end
+clientSocket.send(endmsg.encode())
+recv = clientSocket.recv(1024).decode()
+print(recv)
+if recv[:3] != '250':
+	print('250 reply not received from server.')
+	exit(1)
 
 # Send QUIT command and get server response.
 # Fill in start
