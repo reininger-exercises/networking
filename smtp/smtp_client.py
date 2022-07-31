@@ -80,11 +80,14 @@ if recv[:3] != '235':
 	print('235 reply not received from server.')
 	exit(1)
 
-
 # Send MAIL FROM command and print server response.
-# Fill in start
-
-# Fill in start
+mailFromCommand = f'MAIL FROM: <{username}>\r\n'
+clientSocket.send(mailFromCommand.encode())
+recv = clientSocket.recv(1024).decode()
+print(recv)
+if recv[:3] != '250':
+	print('250 reply not received from server.')
+	exit(1)
 
 # Send RCPT TO command and print server response.
 # Fill in start
