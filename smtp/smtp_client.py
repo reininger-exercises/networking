@@ -120,7 +120,10 @@ if recv[:3] != '250':
 	exit(1)
 
 # Send QUIT command and get server response.
-# Fill in start
-
-# Fill in end
-
+quitCommand = f'QUIT\r\n'
+clientSocket.send(quitCommand.encode())
+recv = clientSocket.recv(1024).decode()
+print(recv)
+if recv[:3] != '221':
+	print('221 reply not received from server.')
+	exit(1)
