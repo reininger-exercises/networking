@@ -15,7 +15,7 @@ with open('credentials.txt', 'r') as credentialFile:
 	username, password = lines[:2]
 
 # Choose a mail server (e.g. Google mail server) and call it mailserver
-mailserver = ('smtp.office365.com', 587)
+mailserver = ('outlook-com.olc.protection.outlook.com.', 25)
 
 # Create socket called clientSocket and establish a TCP connection with
 # mailserver
@@ -45,6 +45,7 @@ if recv[:3] != '250':
 	print('250 reply not received from server.')
 	terminate()
 
+"""
 # Send Starttls command
 startTlsCommand = 'STARTTLS\r\n'
 clientSocket.send(startTlsCommand.encode())
@@ -84,9 +85,10 @@ print(recv)
 if recv[:3] != '235':
 	print('235 reply not received from server.')
 	terminate()
+"""
 
 # Send MAIL FROM command and print server response.
-mailFromCommand = f'MAIL FROM: <{username}>\r\n'
+mailFromCommand = f'MAIL FROM: <john@reidreininger.com>\r\n'
 clientSocket.send(mailFromCommand.encode())
 recv = clientSocket.recv(1024).decode()
 print(recv)
