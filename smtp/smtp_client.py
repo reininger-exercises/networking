@@ -9,11 +9,15 @@ mailserver = ('smtp-mail.outlook.com', 587)
 
 # Create socket called clientSocket and establish a TCP connection with
 # mailserver
-#Fill in start
+try:
+	clientSocket = socket(AF_INET, SOCK_STREAM)
+except:
+	exit(1)
 
-#Fill in end
+clientSocket.connect(mailserver)
 
-recv = clientSocket.recv(1024).decode() print(recv)
+recv = clientSocket.recv(1024).decode()
+print(recv)
 if recv[:3] != '220':
 	print('220 reply not received from server.')
 
