@@ -1,8 +1,5 @@
 # Skeleton Python Code for the Mail Client
-from base64 import *
-from email import message
 from socket import *
-from ssl import *
 from sys import *
 
 msg = "\r\n I love computer networks!"
