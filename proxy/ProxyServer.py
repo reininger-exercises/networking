@@ -9,9 +9,8 @@ if len(sys.argv) <= 1:
 
 # Create a server socket, bind it to a port and start listening
 tcpSerSock = socket(AF_INET, SOCK_STREAM)
-# Fill in start.
-
-# Fill in end.
+PORT = 12000
+tcpSerSock.bind(('', PORT))
 
 while 1:
     # Start receiving data from the client
